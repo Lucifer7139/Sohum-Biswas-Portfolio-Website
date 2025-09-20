@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sohum Biswas - Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #0a0a0a;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: #8affff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #ff4d6d;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+
+  .glow-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: #8affff;
+    text-align: center;
+    margin: 3rem 0 1rem;
+    text-shadow:
+      0 0 5px #8affff,
+      0 0 10px #8affff,
+      0 0 20px #8affff,
+      0 0 40px #00ffff;
+  }
+
+  .intro {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #bbb;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    font-style: italic;
+  }
+
+  h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #ff4d6d;
+    margin-bottom: 1rem;
+    text-shadow:
+      0 0 5px #ff4d6d,
+      0 0 10px #ff4d6d;
+  }
+
+  section {
+    margin-bottom: 4rem;
+  }
+
+  .card {
+    background: #111;
+    border-radius: 12px;
+    box-shadow:
+      0 0 10px rgba(255, 77, 109, 0.3),
+      inset 0 0 10px rgba(255, 77, 109, 0.2);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #ff4d6d;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 0 20px #ff4d6d,
+      inset 0 0 20px #ff4d6d;
+  }
+
+  #about p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+
+  /* Creations section with auto height cards */
+  .creations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .creation-card {
+    background: #111;
+    border-radius: 12px;
+    box-shadow:
+      0 0 8px rgba(138, 255, 255, 0.3),
+      inset 0 0 8px rgba(138, 255, 255, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #8affff;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* no fixed height */
+  }
+  .creation-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 0 20px #8affff,
+      inset 0 0 20px #8affff;
+  }
+  .creation-card img {
+    width: 100%;
+    height: auto; /* natural height */
+    object-fit: cover;
+    border-bottom: none;
+    display: block;
+    border-radius: 12px 12px 0 0;
+  }
+  .creation-info {
+    padding: 1rem;
+    flex-grow: 1;
+  }
+  .creation-info h3 {
+    margin: 0 0 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #8affff;
+  }
+  .creation-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #bbb;
+  }
+
+  #weeb .weeb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 1.5rem;
+  }
+  .weeb-card {
+    background: #111;
+    border-radius: 12px;
+    box-shadow:
+      0 0 8px rgba(255, 77, 109, 0.3),
+      inset 0 0 8px rgba(255, 77, 109, 0.2);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #ff4d6d;
+  }
+  .weeb-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 0 20px #ff4d6d,
+      inset 0 0 20px #ff4d6d;
+  }
+  .weeb-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+  .weeb-card blockquote {
+    font-style: italic;
+    color: #ddd;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  #journal .post {
+    background: #111;
+    border-radius: 12px;
+    box-shadow:
+      0 0 10px rgba(138, 255, 255, 0.3),
+      inset 0 0 10px rgba(138, 255, 255, 0.2);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #8affff;
+    transition: box-shadow 0.3s ease;
+  }
+  #journal .post:hover {
+    box-shadow:
+      0 0 20px #8affff,
+      inset 0 0 20px #8affff;
+  }
+  #journal .post h3 {
+    margin-top: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #8affff;
+  }
+  #journal .post time {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  #journal .post p {
+    color: #ccc;
+  }
+
+  #contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #111;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow:
+      0 0 10px rgba(255, 77, 109, 0.3),
+      inset 0 0 10px rgba(255, 77, 109, 0.2);
+    border-left: 4px solid #ff4d6d;
+  }
+  #contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #ff4d6d;
+  }
+  #contact input[type="email"],
+  #contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: #eee;
+    font-size: 1rem;
+    resize: vertical;
+    box-shadow:
+      inset 0 0 5px #ff4d6d;
+    transition: box-shadow 0.3s ease;
+  }
+  #contact input[type="email"]:focus,
+  #contact textarea:focus {
+    outline: none;
+    box-shadow:
+      0 0 10px #ff4d6d,
+      inset 0 0 10px #ff4d6d;
+  }
+  #contact button {
+    background: #ff4d6d;
+    color: #111;
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+  }
+  #contact button:hover {
+    background: #e03e5a;
+  }
+
+  .social-links {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .social-links a {
+    margin: 0 0.75rem;
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover {
+    color: #8affff;
+  }
+
+  header {
+    position: relative;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .katana-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    fill: #ff4d6d;
+    filter: drop-shadow(0 0 3px #ff4d6d);
+    transform: rotate(-20deg);
+  }
+  .moon-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    fill: #8affff;
+    filter: drop-shadow(0 0 3px #8affff);
+  }
+
+  @media (max-width: 600px) {
+    .glow-text {
+      font-size: 2.5rem;
+      margin: 2rem 0 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    #contact form {
+      padding: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="katana-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <path d="M2 58l60-56-4-2-60 56z"/>
+    <rect x="50" y="10" width="6" height="20" rx="2" ry="2" fill="#ff4d6d"/>
+  </svg>
+  <svg class="moon-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <path d="M40 2a18 18 0 1 0 18 18 14 14 0 0 1-18-18z" />
+  </svg>
+</header>
+
+<main class="container">
+
+  <section id="hero">
+    <h1 class="glow-text">Who Am I?</h1>
+    <p class="intro">I’m Sohum Biswas — thinker, creator, storyteller, weeb, and once a demonologist.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am Sohum Biswas — a curious mind with a hacker spirit and a passion for creation. 
+        From my days as a student to my adventures as a creator, I embrace the world with a weeb’s heart and a demonologist’s curiosity. 
+        I love exploring new ideas, crafting unique projects, and diving deep into stories that inspire and challenge.
+      </p>
+    </div>
+  </section>
+
+  <section id="creations">
+    <h2>Creations</h2>
+    <div class="creations-grid">
+      <div class="creation-card" tabindex="0" aria-label="Minecraft Mods">
+        <img src="https://files.catbox.moe/ionhuv.gif" alt="Minecraft Mods Screenshot" />
+        <div class="creation-info">
+          <h3>Minecraft Mods</h3>
+          <p>Custom mods enhancing gameplay with new mechanics and aesthetics.</p>
+        </div>
+      </div>
+      <div class="creation-card" tabindex="0" aria-label="Hacker Terminals">
+        <img src="https://i.pinimg.com/originals/15/79/fe/1579feb3e44c8e658aac136445720687.gif" alt="Hacker Terminal Interface" />
+        <div class="creation-info">
+          <h3>Hacker Terminals</h3>
+          <p>Stylish, functional terminal interfaces inspired by cyberpunk and anime.</p>
+        </div>
+      </div>
+      <div class="creation-card" tabindex="0" aria-label="Bible Layout Designs">
+        <img src="https://i.pinimg.com/736x/8e/01/47/8e0147fa3a5226995ab85d42e65de011.jpg" alt="Bible Layout Design" />
+        <div class="creation-info">
+          <h3>Bible Layout Designs</h3>
+          <p>Creative layouts blending tradition with modern aesthetics.</p>
+        </div>
+      </div>
+      <div class="creation-card" tabindex="0" aria-label="Apocalypse Journals">
+        <img src="https://i.pinimg.com/736x/cd/07/cb/cd07cbe79cd3630ff2551c2730c154b1.jpg" alt="Apocalypse Journal" />
+        <div class="creation-info">
+          <h3>Apocalypse Journals</h3>
+          <p>Dark, mysterious journals capturing post-apocalyptic tales and art.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="weeb">
+    <h2>Weeb Corner</h2>
+    <div class="weeb-grid">
+      <div class="weeb-card" tabindex="0" aria-label="Nagato Uzunaki Quote">
+        <img src="https://i.pinimg.com/736x/32/62/85/326285f137bc5f9f5b0744dd173cc8fc.jpg" alt="Nagato Uzunaki" />
+        <blockquote>
+          Life's Greatest Lessons<br />
+          "Sometimes you must hurt in order to know, fall in order to grow, lose in order to gain because life's greatest lessons are learned through pain." – Nagato Uzunaki
+        </blockquote>
+      </div>
+      <div class="weeb-card" tabindex="0" aria-label="Guts, Berserk Quote">
+        <img src="https://files.catbox.moe/n2aswb.gif" alt="Guts, Berserk" />
+        <blockquote>“Fear is not evil. It tells you what your weakness is.” – Guts, Berserk</blockquote>
+      </div>
+      <div class="weeb-card" tabindex="0" aria-label="Naruto Uzumaki Quote">
+        <img src="https://i.pinimg.com/736x/58/e6/67/58e66759a2e00339a446e6b54626b431.jpg" alt="Naruto Uzumaki" />
+        <blockquote>“A lesson without pain is meaningless.” – Naruto Uzumaki</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="journal">
+    <h2>Journal</h2>
+    <article class="post" tabindex="0">
+      <h3>The Hacker Spirit</h3>
+      <p>Exploring the mindset of a hacker — curiosity, resilience, and the drive to create and break boundaries.</p>
+    </article>
+    <article class="post" tabindex="0">
+      <h3>Stories from the Demonologist</h3>
+      <p>Reflections on the mysterious and the unknown, blending folklore with personal experience.</p>
+    </article>
+  </section>
+
+  <section id="contact">
+  <h2>Contact Me</h2>
+  <form action="mailto:sohumbiswas@example.com" method="post" enctype="text/plain" aria-label="Contact form">
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <div class="social-links" aria-label="Social media links">
+    <a href="https://github.com/Lucifer7139" target="_blank" rel="noopener" aria-label="GitHub">&#x1F5C3;</a>
+    <a href="https://x.com/L713986738" target="_blank" rel="noopener" aria-label="x">&#x1F426;</a>
+    <a href="https://www.linkedin.com/in/sohum-biswas-a3516326a/" target="_blank" rel="noopener" aria-label="LinkedIn">&#x1F465;</a>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
