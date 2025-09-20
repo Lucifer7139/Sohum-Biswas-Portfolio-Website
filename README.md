@@ -8,18 +8,23 @@ The site is designed with a dark, cyberpunk-inspired aesthetic and is fully resp
 
 #Features
 About Me: A brief introduction.
+
 Creations: Showcases Minecraft mods, hacker terminals, Bible layouts, and apocalypse journals with images and descriptions.
+
 Weeb Corner: Anime-inspired quotes with images.
+
 Journal: Blog-style posts.
-Contact: Email form and social media links with icons.
-Technologies Used
-HTML5
-CSS3 (Grid and Flexbox)
-Google Fonts (Orbitron)
-Font Awesome for social media icons
-Live Demo
-You can view the live website here:
-https://your-github-username.github.io/your-repo-name/
+
+#Contact: Email form and social media links with icons.
+
+#Technologies Used
+ HTML5
+ CSS3 (Grid and Flexbox)
+ Google Fonts (Orbitron)
+ Font Awesome for social media icons
+ Live Demo
+ You can view the live website here:
+(https://lucifer7139.github.io/Sohum-Biswas-Portfolio-Website/)
 
 
 #Customization
